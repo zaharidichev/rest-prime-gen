@@ -3,6 +3,7 @@ package com.zahari.primegen.service.generators;
 import com.codepoetics.protonpack.StreamUtils;
 import com.zahari.primegen.domain.PrimeGeneratorAlgo;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -13,8 +14,13 @@ import static java.util.stream.Collectors.toList;
 
 /**
  *
- * A convinience class to easily obtain prime number generation functions based on
- * a type of algorithm
+ * A  class to easily obtain prime number generation functions based on
+ * a type of algorithm.
+ *
+ * Note that these functions work only on positive numbers and will return empty results
+ * rather than fail if the limit is set to a negative number. It is much better to do that
+ * in these lambdas to keep them clean of exception handling and so on. Much better to
+ * handle all of that checking in the input validation logic and return an error to the client.
  *
  * @author Zahari Dichev <zaharidichev@gmail.com>.
  */
@@ -32,6 +38,8 @@ public class PrimeGeneratorFunctionsFactory {
     public static Function<Integer,List<Integer>> getErathosthenosSievePrimesGenerator() {
 
         return (limit) -> {
+
+            if(limit<0) return Collections.emptyList();
 
             final boolean[] booleanSieve = new boolean[limit+1];
 
