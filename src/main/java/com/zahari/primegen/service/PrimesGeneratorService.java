@@ -15,7 +15,6 @@ import java.util.function.Function;
 @Service
 public class PrimesGeneratorService {
 
-
     /**
      *
      * Returns a result DTO with the prime numbers, their count and the algo used to generate them

@@ -1,4 +1,4 @@
-package com.zahari.primegen;
+package com.zahari.primegen.generator;
 
 import com.zahari.primegen.domain.PrimeGeneratorAlgo;
 import com.zahari.primegen.service.generators.PrimeGeneratorFunctionsFactory;

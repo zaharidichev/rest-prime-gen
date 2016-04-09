@@ -1,4 +1,4 @@
-package com.zahari.primegen;
+package com.zahari.primegen.generator;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -37,7 +37,6 @@ public abstract class AbstractPrimeGeneratorTest {
         List<Integer> result = this.generator.apply(2);
         assertTrue(result.contains(2));
         assertTrue(result.size() == 1);
-
     }
 
     @Test
@@ -45,6 +44,19 @@ public abstract class AbstractPrimeGeneratorTest {
         List<Integer> expected = Arrays.asList(2,3,5,7);
         List<Integer> result = this.generator.apply(10);
         assertTrue(result.size() == 4);
+
+        for(Integer expectedInt : expected) {
+            assertTrue(result.contains(expectedInt));
+        }
+
+    }
+
+
+    @Test
+    public void testPrimeNUmberIncludesUpperLImit() {
+        List<Integer> expected = Arrays.asList(2,3,5,7,11);
+        List<Integer> result = this.generator.apply(11);
+        assertTrue(result.size() == 5);
 
         for(Integer expectedInt : expected) {
             assertTrue(result.contains(expectedInt));
