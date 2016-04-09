@@ -7,9 +7,13 @@ import java.util.List;
  */
 public class PrimesResultDTO {
 
-    Integer numberOfPrimesFound;
-    List<Integer> primes;
+    private String algoType;
+    private Integer numberOfPrimesFound;
+    private List<Integer> primes;
 
+    public String getAlgoType() {
+        return algoType;
+    }
 
     public Integer getNumberOfPrimesFound() {
         return numberOfPrimesFound;
@@ -18,7 +22,6 @@ public class PrimesResultDTO {
     public List<Integer> getPrimes() {
         return primes;
     }
-
 
     public static class Builder {
 
@@ -36,6 +39,11 @@ public class PrimesResultDTO {
 
         public Builder withPrimes(List<Integer> primes) {
             this.result.primes = primes;
+            return this;
+        }
+
+        public Builder withAlgoType(String algoType) {
+            this.result.algoType = algoType;
             return this;
         }
 

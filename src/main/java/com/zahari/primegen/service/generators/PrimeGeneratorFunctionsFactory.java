@@ -12,11 +12,23 @@ import java.util.stream.Stream;
 import static java.util.stream.Collectors.toList;
 
 /**
+ *
+ * A convinience class to easily obtain prime number generation functions based on
+ * a type of algorithm
+ *
  * @author Zahari Dichev <zaharidichev@gmail.com>.
  */
 public class PrimeGeneratorFunctionsFactory {
 
 
+    /**
+     *
+     * Returns a function which is a simple implementation of the Eratosthenos Sieve.
+     * It uses an array of booleans to represent the sieve. As this is a statefull
+     * implementation with side effects on the sieve, it cannot be run in parallel.
+     *
+     * @return
+     */
     public static Function<Integer,List<Integer>> getErathosthenosSievePrimesGenerator() {
 
         return (limit) -> {
@@ -41,6 +53,14 @@ public class PrimeGeneratorFunctionsFactory {
     }
 
 
+    /**
+     * Returns a function which implements a mildly optimised, brure force algorithm
+     * for finding primes. It uses a stateless predicate to test whether a number
+     * is a prime. Therefore it parallelizes cleanly on the ForkJoin pool by simply invoking
+     * .parallel
+     *
+     * @return
+     */
     public static Function<Integer,List<Integer>> getParallelBruteForcePrimeGenerator() {
 
         return (limit) -> IntStream.rangeClosed(2, limit)
@@ -64,8 +84,13 @@ public class PrimeGeneratorFunctionsFactory {
     };
 
 
-
-
+    /**
+     * Based on the type of algorithm used, a function is returned which takes as input
+     * the maximum number until which to look for primes and returns a list of primes.
+     *
+     * @param algo
+     * @return
+     */
     public static Function<Integer,List<Integer>> getPrimeGeneratorImplementation(PrimeGeneratorAlgo algo) {
 
         return algo == PrimeGeneratorAlgo.serial ? getErathosthenosSievePrimesGenerator() : getParallelBruteForcePrimeGenerator();

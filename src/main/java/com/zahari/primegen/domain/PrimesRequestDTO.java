@@ -6,7 +6,7 @@ package com.zahari.primegen.domain;
 public class PrimesRequestDTO {
 
     private Integer limit;
-    private String implementation;
+    private String algoType;
 
 
 
@@ -18,17 +18,16 @@ public class PrimesRequestDTO {
         this.limit = limit;
     }
 
-
-    public String getImplementation() {
-        return implementation;
+    public String getAlgoType() {
+        return algoType;
     }
 
-    public void setImplementation(String implementation) {
-        this.implementation = implementation;
+    public void setAlgoType(String algoType) {
+        this.algoType = algoType;
     }
 
-    public PrimeGeneratorAlgo getImplementationAsEnum() {
-        return PrimeGeneratorAlgo.valueOf(implementation);
+    public PrimeGeneratorAlgo getAlgoTypeAsEnum() {
+        return PrimeGeneratorAlgo.valueOf(algoType);
     }
 
 
