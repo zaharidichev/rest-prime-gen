@@ -1,4 +1,4 @@
-package com.zahari.primegen.errorhandling.validation;
+package com.zahari.primegen.errorhandling.errors;
 
 /**
  * @author Zahari Dichev <zaharidichev@gmail.com>.

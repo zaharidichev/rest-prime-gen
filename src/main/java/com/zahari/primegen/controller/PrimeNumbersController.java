@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/primenums")
 public class PrimeNumbersController {
 
-
     @Autowired
     private PrimeNumbersRequestValidator validator;
 

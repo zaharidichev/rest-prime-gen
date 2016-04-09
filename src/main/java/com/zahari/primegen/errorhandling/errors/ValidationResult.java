@@ -1,4 +1,4 @@
-package com.zahari.primegen.errorhandling.validation;
+package com.zahari.primegen.errorhandling.errors;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

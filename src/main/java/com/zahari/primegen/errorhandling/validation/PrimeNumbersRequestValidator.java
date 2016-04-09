@@ -2,7 +2,9 @@ package com.zahari.primegen.errorhandling.validation;
 
 import com.zahari.primegen.domain.PrimeGeneratorAlgo;
 import com.zahari.primegen.domain.PrimesRequestDTO;
-import org.springframework.stereotype.Component;
+import com.zahari.primegen.errorhandling.errors.ValidationError;
+import com.zahari.primegen.errorhandling.errors.ValidationException;
+import com.zahari.primegen.errorhandling.errors.ValidationResult;
 
 import java.util.Arrays;
 
@@ -10,7 +12,7 @@ import java.util.Arrays;
  * @author Zahari Dichev <zaharidichev@gmail.com>.
  */
 
-@Component
+@PayloadValidator
 public class PrimeNumbersRequestValidator {
 
     private ValidationResult validationResult = new ValidationResult();
