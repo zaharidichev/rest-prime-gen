@@ -26,10 +26,10 @@ public class ValidationError implements IError {
     }
 
     public String getError() {
-        return this.message;
+        return this.error;
     }
 
     public String getMessage() {
-        return this.error;
+        return this.message;
     }
 }
