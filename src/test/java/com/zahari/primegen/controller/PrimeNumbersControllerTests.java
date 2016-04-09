@@ -1,5 +1,6 @@
-package com.zahari.primegen;
+package com.zahari.primegen.controller;
 
+import com.zahari.primegen.PrimeGenApplication;
 import com.zahari.primegen.domain.PrimeGeneratorAlgo;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,7 +21,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = PrimeGenApplication.class)
 @WebAppConfiguration
-public class PrimeGenApplicationTests {
+public class PrimeNumbersControllerTests {
 
 	@Autowired
 	private WebApplicationContext wac;
