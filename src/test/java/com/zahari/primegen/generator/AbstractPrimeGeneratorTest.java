@@ -10,6 +10,9 @@ import java.util.function.Function;
 import static junit.framework.TestCase.assertTrue;
 
 /**
+ *
+ * This is an abstract class that can test multiple implementations of the prime numbers generator
+ *
  * @author Zahari Dichev <zaharidichev@gmail.com>.
  */
 public abstract class AbstractPrimeGeneratorTest {
