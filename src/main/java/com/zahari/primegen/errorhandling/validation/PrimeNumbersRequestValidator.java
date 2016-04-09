@@ -25,6 +25,11 @@ public class PrimeNumbersRequestValidator {
             if(params.getLimit() < 0) {
                 validationResult.addError(new ValidationError("The limit parameter should be positive", "PARAM_INVALID"));
             }
+
+            if(params.getLimit() == Integer.MAX_VALUE) {
+                validationResult.addError(new ValidationError("The maximum value of limit parameter is " + (Integer.MAX_VALUE - 1), "PARAM_INVALID"));
+            }
+
         } else {
             validationResult.addError(new ValidationError("The limit parameter is mandatory", "MISSING_PARAM"));
 

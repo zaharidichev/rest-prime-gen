@@ -44,7 +44,7 @@ public class DefaultErrorHandler {
     // in case we get any other exception
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler({Exception.class})
+    @ExceptionHandler({Throwable.class})
     public ServerError handleException(Throwable ex) {
         logger.error(ex); // log it to sonsole for sure..
         return ServerError.UNKNOWN_ERROR;

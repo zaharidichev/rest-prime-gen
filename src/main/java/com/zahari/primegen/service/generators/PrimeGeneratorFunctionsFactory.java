@@ -47,7 +47,7 @@ public class PrimeGeneratorFunctionsFactory {
                     .filter(x -> !booleanSieve[x])
                     .peek(prime -> {
                         int primeToTheSecond = prime * prime;
-                        if (primeToTheSecond < limit) {
+                        if (primeToTheSecond < limit && primeToTheSecond > 0) {
                             for (int i = primeToTheSecond; i <= limit; i += prime) {
                                 booleanSieve[i] = true;
                             }
