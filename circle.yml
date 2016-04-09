@@ -17,7 +17,7 @@ dependencies:
 test:
   override:
     - mvn clean install
-    - docker build -t zaharidichev/rest-prime-gen .
+    - docker build -t zaharidichev/rest-prime-gen:1.0 .
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
