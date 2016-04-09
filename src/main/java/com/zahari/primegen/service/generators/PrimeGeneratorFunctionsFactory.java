@@ -80,6 +80,9 @@ public class PrimeGeneratorFunctionsFactory {
     }
 
 
+    /*
+        Unfortunatelly we dont have native .takeWhile in Java 8 but I guess you cna always get what you want...
+     */
     private static Predicate<Integer> isPrime = (n) -> {
         if (n==2) return true; // rule out 2
         if (n%2==0) return false; // rule out any multiples of two
