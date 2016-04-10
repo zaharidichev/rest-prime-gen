@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("/primenums")
+@RequestMapping("/api//primenums")
 public class PrimeNumbersController {
 
     @Autowired

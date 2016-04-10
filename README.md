@@ -17,7 +17,7 @@ $ mvn spring-boot:run
 
 # Usage
 After starting the service you can use the service by visiting: 
-http://localhost:8080/primenums
+http://localhost:8080/api/primenums
 
 The endpoint for calculating prime numbers takes two mandatory arguments: 
 
@@ -43,7 +43,7 @@ The response which you will likely get back looks like this:
 In case a parameter is omitted or misspelled or is incorrect in some way, you will receive feedback. 
 
 For example, if we call: 
-http://restprime.airconomist.com/primenums?limit=-10&algoType=serial
+http://restprime.airconomist.com/api/primenums?limit=-10&algoType=serial
 
 The result is: 
 
@@ -59,7 +59,7 @@ The result is:
 ```
 In a similar way if we call 
 
-http://restprime.airconomist.com/primenums?limit=-10&algoType=FOO, 
+http://restprime.airconomist.com/api/primenums?limit=-10&algoType=FOO, 
 
 we get two errors:
 ```json
@@ -80,7 +80,7 @@ we get two errors:
 
 # Deployment
 Currently there is a live instance of the service running on 
-http://restprime.airconomist.com/primenums
+http://restprime.airconomist.com/api/rimenums
 This runs behind a load balancing reverse proxy as a docker container. The CircleCI config as well as the docker file are both included in the repo. CI is already setup so the process goes in the following way: 
 
 * Push to the repo triggers a build
