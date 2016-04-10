@@ -80,7 +80,7 @@ we get two errors:
 
 # Deployment
 Currently there is a live instance of the service running on 
-http://restprime.airconomist.com/api/rimenums
+http://restprime.airconomist.com/api/primenums
 This runs behind a load balancing reverse proxy as a docker container. The CircleCI config as well as the docker file are both included in the repo. CI is already setup so the process goes in the following way: 
 
 * Push to the repo triggers a build
