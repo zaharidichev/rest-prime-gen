@@ -42,7 +42,7 @@ public class PrimeNumbersControllerTests {
 	private void testPrimesUntilElevenForAlgo(PrimeGeneratorAlgo algo) throws Exception {
 
 		this.mockMvc
-				.perform(get("/primenums").param("limit", "11").param("algoType", algo.name()))
+				.perform(get("/api/primenums").param("limit", "11").param("algoType", algo.name()))
 				.andExpect(status().isOk())
 				.andExpect(content().contentType("application/json;charset=UTF-8"))
 				.andExpect(jsonPath("$.algoType", is(algo.name())))
@@ -64,14 +64,14 @@ public class PrimeNumbersControllerTests {
 	@Test
 	public void returnsErrorForMissingParams() throws Exception {
 		this.mockMvc
-				.perform(get("/primenums"))
+				.perform(get("/api/primenums"))
 				.andExpect(status().is(HttpStatus.BAD_REQUEST.value()));
 	}
 
 	@Test
 	public void returnsErrorForMisspelledAlgo() throws Exception {
 		this.mockMvc
-				.perform(get("/primenums").param("limit","11").param("algoType", "foo"))
+				.perform(get("/api/primenums").param("limit","11").param("algoType", "foo"))
 				.andExpect(status().is(HttpStatus.BAD_REQUEST.value()))
 				.andExpect(jsonPath("$.errors", hasSize(1)));
 
@@ -80,7 +80,7 @@ public class PrimeNumbersControllerTests {
 	@Test
 	public void returnsErrorForNegativeNumber() throws Exception {
 		this.mockMvc
-				.perform(get("/primenums").param("limit","-11").param("algoType", "serial"))
+				.perform(get("/api/primenums").param("limit","-11").param("algoType", "serial"))
 				.andExpect(status().is(HttpStatus.BAD_REQUEST.value()))
 		        .andExpect(jsonPath("$.errors", hasSize(1)));
 
@@ -90,7 +90,7 @@ public class PrimeNumbersControllerTests {
 	public void returnsErrorWhenNumberOverflowsAndBecomesNegative() throws Exception {
 
 		this.mockMvc
-				.perform(get("/primenums").param("limit","2147483650").param("algoType", "serial"))
+				.perform(get("/api/primenums").param("limit","2147483650").param("algoType", "serial"))
 				.andExpect(status().is(HttpStatus.INTERNAL_SERVER_ERROR.value()))
 				.andExpect(jsonPath("$.message", is("There was a failure formatting your numeric input. Limit field should be within the bounds of a Java Integer")));
 
